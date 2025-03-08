@@ -1,45 +1,36 @@
 .profile {
   display: flex;
-  width: 100%;
-  border-bottom: solid;
-  border-width: thin;
-  border-color: rgba(0, 0, 0, 0.3);
+  padding: 34px 0 20px;
+  border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
 }
 
-.profile__user_content {
-  display: flex;
-  margin-right: auto;
+.profile__avatar {
+  margin-right: 20px;
 }
 
-.profile__user_image {
-  width: ;
-  height: ;
-}
-
-.profile__user_column {
+.profile__column {
   display: flex;
   flex-direction: column;
 }
 
-.profile__user_info {
+.profile__name {
+  margin: 0 0 12px;
 }
 
-.profile__user_name {
+.profile__description {
+  margin: 0;
 }
 
-.profile__user_description {
+.profile__edit-button {
+  margin-top: auto;
 }
 
-.button__secondary {
-  padding: 0;
+.profile__pencil-icon {
 }
 
-.profile__edit-icon {
+.profile__add-button {
+  margin-left: auto;
 }
 
-.button__large {
-  padding: 0;
-}
-
-.profile__post-icon {
+.profile__plus-icon {
 }

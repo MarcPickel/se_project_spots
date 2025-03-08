@@ -19,142 +19,86 @@
 
   <body>
     <div class="page">
-      <div class="menubar">
-        <img class="menubar__logo" src="images/logo_spots.svg" alt="Spots" />
-      </div>
       <header class="header">
-        <div class="profile">
-          <div class="profile__user_content">
-            <img
-              class="profile__user_image"
-              src="images/avatar.jpg"
-              alt="user"
-            />
-            <div class="profile__user_column">
-              <div class="profile__user_info">
-                <h1 class="profile__user_name">Bessie Coleman</h1>
-                <p class="profile__user_description">Civil Aviator</p>
-              </div>
-              <button
-                type="button"
-                class="button__secondary"
-                name="edit profile"
-              >
-                <img
-                  class="profile__edit-icon"
-                  src="images/icon_pencil.svg"
-                  alt="edit"
-                />
-                Edit Profile
-              </button>
-            </div>
-          </div>
-          <button type="button" class="button__large" name="new post">
-            <img
-              class="profile__post-icon"
-              src="images/icon_plus.svg"
-              alt="post"
-            />
-            New Post
-          </button>
-        </div>
+        <img
+          class="header__logo"
+          src="./images/logo_spots.svg"
+          alt="Spots logo"
+        />
       </header>
 
       <main class="content">
-        <section class="gallery">
-          <div class="gallery__images">
-            <ul class="gallery__list">
-              <li class="gallery__list-item">
-                <div class="card">
-                  <img class="card__image" src="images/val-thorens.jpg" />
-                  <div class="card__footer">
-                    <p class="card__caption">Val Thorens</p>
-                    <label class="card__icon">
-                      <input type="checkbox" class="invisible-checkbox" />
-                      <span class="visible-checkbox"></span>
-                    </label>
-                  </div>
-                </div>
-              </li>
-              <li class="gallery__list-item">
-                <div class="card">
-                  <img
-                    class="card__image"
-                    src="images/restaurant-terrace.jpg"
-                  />
-                  <div class="card__footer">
-                    <p class="card__caption">Restaurant terrace</p>
-                    <label class="card__icon">
-                      <input type="checkbox" class="invisible-checkbox" />
-                      <span class="visible-checkbox"></span>
-                    </label>
-                  </div>
-                </div>
-              </li>
-              <li class="gallery__list-item">
-                <div class="card">
-                  <img class="card__image" src="images/outdoor-cafe.jpg" />
-                  <div class="card__footer">
-                    <p class="card__caption">An outdoor cafe</p>
-                    <label class="card__icon">
-                      <input type="checkbox" class="invisible-checkbox" />
-                      <span class="visible-checkbox"></span>
-                    </label>
-                  </div>
-                </div>
-              </li>
-              <li class="gallery__list-item">
-                <div class="card">
-                  <img
-                    class="card__image"
-                    src="images/long-bridge-forest.jpg"
-                  />
-                  <div class="card__footer">
-                    <p class="card__caption">
-                      A very long bridge, over the forest
-                    </p>
-                    <label class="card__icon">
-                      <input type="checkbox" class="invisible-checkbox" />
-                      <span class="visible-checkbox"></span>
-                    </label>
-                  </div>
-                </div>
-              </li>
-              <li class="gallery__list-item">
-                <div class="card">
-                  <img
-                    class="card__image"
-                    src="images/tunnel-morning-light.jpg"
-                  />
-                  <div class="card__footer">
-                    <p class="card__caption">Tunnel with morning light</p>
-                    <label class="card__icon">
-                      <input type="checkbox" class="invisible-checkbox" />
-                      <span class="visible-checkbox"></span>
-                    </label>
-                  </div>
-                </div>
-              </li>
-              <li class="gallery__list-item">
-                <div class="card">
-                  <img class="card__image" src="images/mountain-house.jpg" />
-                  <div class="card__footer">
-                    <p class="card__caption">Mountain house</p>
-                    <label class="card__icon">
-                      <input type="checkbox" class="invisible-checkbox" />
-                      <span class="visible-checkbox"></span>
-                    </label>
-                  </div>
-                </div>
-              </li>
-            </ul>
+        <section class="profile page__section">
+          <img
+            src="./images/avatar.jpg"
+            alt="Bessie Coleman"
+            class="profile__avatar"
+          />
+          <div class="profile__column">
+            <h1 class="profile__name">Bessie Coleman</h1>
+            <p class="profile__description">Civil Aviator</p>
+            <button type="button" class="profile__edit-button">
+              <img
+                src="./images/icon_pencil.svg"
+                alt="Pencil icon"
+                class="profile__pencil-icon"
+              />Edit Profile
+            </button>
           </div>
+          <button type="button" class="profile__add-button">
+            <img
+              src="./images/icon_plus.svg"
+              alt="Plus icon"
+              class="profile__plus-icon"
+            />New Post
+          </button>
         </section>
-      </main>
-    </div>
-  </body>
 
-  <footer class="footer">
-    <p class="footer__copyright">2025 © Spots</p>
-  </footer>
+        <section class="cards page__section">
+          <ul class="cards__list">
+            <li class="card">
+              <img src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg" alt="Val Thorens" class="card__image">
+              <div class="card__content">
+                <h2 class="card__title">Val Thorens</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img src="./images/2-photo-by-ceiline-from-pexels.jpg" alt="Val Thorens" class="card__image">
+              <div class="card__content">
+                <h2 class="card__title">Val Thorens</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg" alt="Val Thorens" class="card__image">
+              <div class="card__content">
+                <h2 class="card__title">Val Thorens</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img src="./images/4-photo-by-maurice-laschet-from-pexels.jpg" alt="Val Thorens" class="card__image">
+              <div class="card__content">
+                <h2 class="card__title">Val Thorens</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg" alt="Val Thorens" class="card__image">
+              <div class="card__content">
+                <h2 class="card__title">Val Thorens</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg" alt="Val Thorens" class="card__image">
+              <div class="card__content">
+                <h2 class="card__title">Val Thorens</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <footer class="footer"></footer>
 </html>
