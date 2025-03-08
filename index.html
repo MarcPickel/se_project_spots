@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="An interactive social media app centered around photo-sharing, built for the User."
+    />
+    <meta
+      name="keywords"
+      content="photo, photos, photographs, photography, photo sharing, photo sharing website, photo sharing app, photo sharing application"
+    />
+    <meta name="author" content="Marc Pickelman" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spots</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="pages/index.css" />
+  </head>
+
+  <body>
+    <div class="page">
+      <div class="menubar">
+        <img class="menubar__logo" src="images/logo_spots.svg" alt="Spots" />
+      </div>
+      <header class="header">
+        <div class="profile">
+          <div class="profile__user_content">
+            <img
+              class="profile__user_image"
+              src="images/avatar.jpg"
+              alt="user"
+            />
+            <div class="profile__user_column">
+              <div class="profile__user_info">
+                <h1 class="profile__user_name">Bessie Coleman</h1>
+                <p class="profile__user_description">Civil Aviator</p>
+              </div>
+              <button
+                type="button"
+                class="button__secondary"
+                name="edit profile"
+              >
+                <img
+                  class="profile__edit-icon"
+                  src="images/icon_pencil.svg"
+                  alt="edit"
+                />
+                Edit Profile
+              </button>
+            </div>
+          </div>
+          <button type="button" class="button__large" name="new post">
+            <img
+              class="profile__post-icon"
+              src="images/icon_plus.svg"
+              alt="post"
+            />
+            New Post
+          </button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="gallery">
+          <div class="gallery__images">
+            <ul class="gallery__list">
+              <li class="gallery__list-item">
+                <div class="card">
+                  <img class="card__image" src="images/val-thorens.jpg" />
+                  <div class="card__footer">
+                    <p class="card__caption">Val Thorens</p>
+                    <label class="card__icon">
+                      <input type="checkbox" class="invisible-checkbox" />
+                      <span class="visible-checkbox"></span>
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="gallery__list-item">
+                <div class="card">
+                  <img
+                    class="card__image"
+                    src="images/restaurant-terrace.jpg"
+                  />
+                  <div class="card__footer">
+                    <p class="card__caption">Restaurant terrace</p>
+                    <label class="card__icon">
+                      <input type="checkbox" class="invisible-checkbox" />
+                      <span class="visible-checkbox"></span>
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="gallery__list-item">
+                <div class="card">
+                  <img class="card__image" src="images/outdoor-cafe.jpg" />
+                  <div class="card__footer">
+                    <p class="card__caption">An outdoor cafe</p>
+                    <label class="card__icon">
+                      <input type="checkbox" class="invisible-checkbox" />
+                      <span class="visible-checkbox"></span>
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="gallery__list-item">
+                <div class="card">
+                  <img
+                    class="card__image"
+                    src="images/long-bridge-forest.jpg"
+                  />
+                  <div class="card__footer">
+                    <p class="card__caption">
+                      A very long bridge, over the forest
+                    </p>
+                    <label class="card__icon">
+                      <input type="checkbox" class="invisible-checkbox" />
+                      <span class="visible-checkbox"></span>
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="gallery__list-item">
+                <div class="card">
+                  <img
+                    class="card__image"
+                    src="images/tunnel-morning-light.jpg"
+                  />
+                  <div class="card__footer">
+                    <p class="card__caption">Tunnel with morning light</p>
+                    <label class="card__icon">
+                      <input type="checkbox" class="invisible-checkbox" />
+                      <span class="visible-checkbox"></span>
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="gallery__list-item">
+                <div class="card">
+                  <img class="card__image" src="images/mountain-house.jpg" />
+                  <div class="card__footer">
+                    <p class="card__caption">Mountain house</p>
+                    <label class="card__icon">
+                      <input type="checkbox" class="invisible-checkbox" />
+                      <span class="visible-checkbox"></span>
+                    </label>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+
+  <footer class="footer">
+    <p class="footer__copyright">2025 © Spots</p>
+  </footer>
+</html>

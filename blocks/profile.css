@@ -1,0 +1,45 @@
+.profile {
+  display: flex;
+  width: 100%;
+  border-bottom: solid;
+  border-width: thin;
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.profile__user_content {
+  display: flex;
+  margin-right: auto;
+}
+
+.profile__user_image {
+  width: ;
+  height: ;
+}
+
+.profile__user_column {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__user_info {
+}
+
+.profile__user_name {
+}
+
+.profile__user_description {
+}
+
+.button__secondary {
+  padding: 0;
+}
+
+.profile__edit-icon {
+}
+
+.button__large {
+  padding: 0;
+}
+
+.profile__post-icon {
+}
