@@ -13,6 +13,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0;
+}
+
+.card__title {
+  margin: 12px 0 0;
 }
 
 .card__like-button {
