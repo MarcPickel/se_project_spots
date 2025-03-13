@@ -41,6 +41,8 @@
 
 .profile__edit-button {
   margin-top: auto;
+  max-width: 107.34px;
+  padding: 0;
   background-color: transparent;
   color: rgba(33, 33, 33, 0.7);
   border: none;
@@ -89,6 +91,9 @@
 
   .profile__column {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .profile__name {
