@@ -39,3 +39,5 @@ images/1-photo-by-moritz-feldmann-from-pexels.jpg
 https://github.com/MarcPickel/se_project_spots
 
 **Link to Video Explaining Project**
+
+https://drive.google.com/file/d/1ASJKkOX-5D_zDBUgLVbI4_gHTjgtWNiK/view
