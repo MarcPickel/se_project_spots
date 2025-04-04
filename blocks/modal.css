@@ -13,7 +13,7 @@
   visibility: hidden;
 }
 
-.modal__opened {
+.modal__is-opened {
   visibility: visible;
 }
 
@@ -85,7 +85,7 @@
 }
 
 .modal__input::placeholder {
-  color: #212121;
+  color: #2121214d;
   font-size: 20px;
 }
 
