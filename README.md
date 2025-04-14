@@ -1,4 +1,4 @@
-# TripleTen Project 3: Spots
+# TripleTen Project 3.5: Spots
 
 ### Overview
 
@@ -10,12 +10,13 @@
 
 **Description**
 
-This is the third project of the Software Engineering program at TripleTen. It was created using HTML and CSS -- based on the project description and design on Figma -- and features webpage layout technologies and techniques (techne), such as grid layout and media queries, making it responsive to popular screen sizes.
+This is the fifth installment of the se_spots_project of the Software Engineering program at TripleTen. It was created using HTML, CSS, and JavaScript -- based on the project description on the TripleTen website and the design on Figma -- and features webpage layout technologies and techniques (techne), such as grid layout and media queries, making it responsive to popular screen sizes.
 
 **Techne**
 
 - HTML5
 - CSS3
+- JavaScript
 - Flat BEM file structure
 - BEM naming conventions
 - Semantic tags
