@@ -23,6 +23,13 @@ const profileDescriptionElement = document.querySelector(
   ".profile__description"
 );
 
+const cards = document.querySelector(".cards");
+
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
+const cardsList = cards.querySelector(".cards__list");
+
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 }
@@ -69,6 +76,18 @@ function handleNewPostSubmit(evt) {
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
 
+function getCardElement(data) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardTitle = cardElement.querySelector(".card__title");
+  const cardImage = cardElement.querySelector(".card__image");
+
+  cardTitle.textContent = name; // assign the name property of the data parameter
+  cardImage.src = link; // assign values to the image's properties as described
+  cardImage.alt = name; // assign value to the image's alt property
+
+  return cardElement;
+}
+
 const initialCards = [
   "valThorens",
   "restaurantTerrace",
@@ -109,5 +128,6 @@ let mountainHouse = {
 };
 
 initialCards.forEach(function (item) {
-  console.log(item);
+  getCardElement(item);
+  cardsList.prepend(cardElement);
 });
