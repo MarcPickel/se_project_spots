@@ -23,13 +23,6 @@ const profileDescriptionElement = document.querySelector(
   ".profile__description"
 );
 
-const cards = document.querySelector(".cards");
-
-const cardTemplate = document
-  .querySelector("#card-template")
-  .content.querySelector(".card");
-const cardsList = cards.querySelector(".cards__list");
-
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 }
@@ -68,66 +61,100 @@ editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
-  console.log(newPostLinkInput.value);
-  console.log(newPostCaptionInput.value);
+
+  const inputValues = {
+    name: newPostCaptionInput.value,
+    link: newPostLinkInput.value,
+  };
+
+  const cardElement = getCardElement(inputValues);
+  cardsList.prepend(cardElement);
+
   newPostModal.classList.remove("modal_is-opened");
   evt.target.reset();
 }
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
 
+const previewModal = document.querySelector("#preview-modal");
+const previewModalCloseButton = previewModal.querySelector(
+  ".modal__close-button"
+);
+const previewImageElement = previewModal.querySelector(".modal__image");
+const previewCaptionElement = previewModal.querySelector(".modal__caption");
+previewModalCloseButton.addEventListener("click", () => {
+  closeModal(previewModal);
+});
+
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
+const cardsList = document.querySelector(".cards__list");
+
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
-  const cardTitle = cardElement.querySelector(".card__title");
-  const cardImage = cardElement.querySelector(".card__image");
+  const cardTitleElement = cardElement.querySelector(".card__title");
+  const cardImageElement = cardElement.querySelector(".card__image");
 
-  cardTitle.textContent = name; // assign the name property of the data parameter
-  cardImage.src = link; // assign values to the image's properties as described
-  cardImage.alt = name; // assign value to the image's alt property
+  cardTitleElement.textContent = data.name;
+  cardImageElement.src = data.link;
+  cardImageElement.alt = data.name;
+
+  const cardLikeButtonElement = cardElement.querySelector(".card__like-button");
+  cardLikeButtonElement.addEventListener("click", () => {
+    cardLikeButtonElement.classList.toggle("card__like-button_active");
+  });
+
+  const cardDeleteButtonElement = cardElement.querySelector(
+    ".card__delete-button"
+  );
+  cardDeleteButtonElement.addEventListener("click", () => {
+    cardElement.remove();
+    cardElement = null;
+  });
+
+  cardImageElement.addEventListener("click", function () {
+    previewImageElement.src = data.link;
+    previewImageElement.alt = data.name;
+    previewCaptionElement.textContent = data.name;
+    openModal(previewModal);
+  });
 
   return cardElement;
 }
 
 const initialCards = [
-  "valThorens",
-  "restaurantTerrace",
-  "outdoorCafe",
-  "longForestBridge",
-  "tunnelLight",
-  "mountainHouse",
+  {
+    name: "Golden Gate bridge",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+  },
+  {
+    name: "Val Thorens",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
+  },
+  {
+    name: "Restaurant terrace",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
+  },
+  {
+    name: "An outdoor cafe",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
+  },
+  {
+    name: "A very long bridge, over the forest and through the trees",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
+  },
+  {
+    name: "Tunnel with morning light",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+  },
+  {
+    name: "Mountain house",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
+  },
 ];
 
-let valThorens = {
-  name: "Val Thorens",
-  url: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-};
-
-let restaurantTerrace = {
-  name: "Restaurant terrace",
-  url: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-};
-
-let outdoorCafe = {
-  name: "An outdoor cafe",
-  url: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-};
-
-let longForestBridge = {
-  name: "A very long bridge, over the forest and through the trees",
-  url: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-};
-
-let tunnelLight = {
-  name: "Tunnel with morning light",
-  url: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-};
-
-let mountainHouse = {
-  name: "Mountain house",
-  url: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-};
-
 initialCards.forEach(function (item) {
-  getCardElement(item);
-  cardsList.prepend(cardElement);
+  const cardElement = getCardElement(item);
+  cardsList.append(cardElement);
 });
