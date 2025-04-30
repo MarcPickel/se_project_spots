@@ -37,15 +37,15 @@ editProfileButton.addEventListener("click", function () {
   openModal(editProfileModal);
 });
 
-editProfileCloseButton.addEventListener("click", function () {
+editProfileCloseButton.addEventListener("click", () => {
   closeModal(editProfileModal);
 });
 
-newPostButton.addEventListener("click", function () {
+newPostButton.addEventListener("click", () => {
   openModal(newPostModal);
 });
 
-newPostCloseButton.addEventListener("click", function () {
+newPostCloseButton.addEventListener("click", () => {
   closeModal(newPostModal);
 });
 
@@ -70,7 +70,7 @@ function handleNewPostSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
 
-  newPostModal.classList.remove("modal_is-opened");
+  closeModal(newPostModal);
   evt.target.reset();
 }
 
@@ -110,7 +110,6 @@ function getCardElement(data) {
   );
   cardDeleteButtonElement.addEventListener("click", () => {
     cardElement.remove();
-    cardElement = null;
   });
 
   cardImageElement.addEventListener("click", function () {
