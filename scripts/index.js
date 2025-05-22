@@ -32,13 +32,13 @@ const profileDescriptionElement = document.querySelector(
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
   modal.addEventListener("mousedown", modalOverlayClose);
-  modal.addEventListener("keydown", handleEscapeClose);
+  document.addEventListener("keydown", handleEscapeClose);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
   modal.removeEventListener("mousedown", modalOverlayClose);
-  modal.removeEventListener("keydown", handleEscapeClose);
+  document.removeEventListener("keydown", handleEscapeClose);
 }
 
 editProfileButton.addEventListener("click", function () {
