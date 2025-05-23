@@ -41,12 +41,6 @@ function closeModal(modal) {
   document.removeEventListener("keydown", handleEscapeClose);
 }
 
-function pianoMan(evt) {
-  console.log("Sing me a song!");
-}
-
-pianoMan();
-
 editProfileButton.addEventListener("click", function () {
   editProfileNameInput.value = profileNameElement.textContent;
   editProfileDescriptionInput.value = profileDescriptionElement.textContent;
