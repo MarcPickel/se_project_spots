@@ -1,0 +1,20 @@
+{
+  "name": "se_project_spots",
+  "version": "0.0.1",
+  "description": "Social media platform",
+  "homepage": "https://github.com/MarcPickel/se_project_spots#readme",
+  "bugs": {
+    "url": "https://github.com/MarcPickel/se_project_spots/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcPickel/se_project_spots.git"
+  },
+  "license": "ISC",
+  "author": "Marc Pickelman",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
