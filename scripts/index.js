@@ -1,3 +1,12 @@
+//Imports from validation.js
+import {
+  enableValidation,
+  resetValidation,
+  disableButton,
+  settings,
+} from "./validation.js";
+enableValidation(settings);
+
 // All Modals
 const allModals = document.querySelectorAll(".modal");
 
