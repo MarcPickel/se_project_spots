@@ -1,10 +1,13 @@
+//Import CSS
+import "./index.css";
+
 //Imports from validation.js
 import {
   enableValidation,
   resetValidation,
   disableButton,
   settings,
-} from "./validation.js";
+} from "../scripts/validation.js";
 enableValidation(settings);
 
 // All Modals
