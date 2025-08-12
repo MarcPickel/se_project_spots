@@ -1,8 +1,11 @@
 //Import CSS
 import "./index.css";
 
-//Import from constants.js
-import { initialCards, settings } from "../utils/constants.js";
+//Import from api.js
+import Api from "../utils/api.js";
+
+//Imports from constants.js
+import { settings } from "../utils/constants.js";
 
 //Imports from validation.js
 import {
@@ -11,9 +14,6 @@ import {
   disableButton,
 } from "../scripts/validation.js";
 enableValidation(settings);
-
-// All Modals
-const allModals = document.querySelectorAll(".modal");
 
 // Edit Profile
 const editProfileButton = document.querySelector(".profile__edit-button");
@@ -38,10 +38,39 @@ const newPostForm = newPostModal.querySelector("#new-post-form");
 const newPostLinkInput = newPostModal.querySelector("#card-image-input");
 const newPostCaptionInput = newPostModal.querySelector("#card-caption-input");
 
+// Profile Elements
+const profileAvatarElement = document.querySelector(".profile__avatar");
 const profileNameElement = document.querySelector(".profile__name");
 const profileDescriptionElement = document.querySelector(
   ".profile__description"
 );
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "5ef325c5-f7c1-4719-bb32-13415ad57957",
+    "Content-Type": "application/json",
+  },
+});
+
+api
+  .getAppInfo()
+  .then(([cards, user]) => {
+    cards.forEach(function (item) {
+      const cardElement = getCardElement(item);
+      cardsList.append(cardElement);
+    });
+    if (profileAvatarElement) {
+      profileAvatarElement.src = user.avatar;
+      profileAvatarElement.alt = user.name;
+    }
+    profileNameElement.textContent = user.name;
+    profileDescriptionElement.textContent = user.about;
+    console.log(user);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
@@ -80,27 +109,50 @@ newPostCloseButton.addEventListener("click", () => {
 
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
-  profileNameElement.textContent = editProfileNameInput.value;
-  profileDescriptionElement.textContent = editProfileDescriptionInput.value;
-  closeModal(editProfileModal);
+  api
+    .editUserInfo({
+      name: editProfileNameInput.value,
+      about: editProfileDescriptionInput.value,
+    })
+    .then((data) => {
+      if (data) {
+        profileNameElement.textContent = data.value;
+        profileDescriptionElement.textContent = data.value;
+        closeModal(editProfileModal);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
+  api
+    .getNewCard({
+      name: newPostCaptionInput.value,
+      link: newPostLinkInput.value,
+    })
+    .then((data) => {
+      if (data) {
+        const inputValues = {
+          name: data.value,
+          link: data.value,
+        };
 
-  const inputValues = {
-    name: newPostCaptionInput.value,
-    link: newPostLinkInput.value,
-  };
+        const cardElement = getCardElement(inputValues);
+        cardsList.prepend(cardElement);
 
-  const cardElement = getCardElement(inputValues);
-  cardsList.prepend(cardElement);
-
-  disableButton(newPostSubmitButton, settings);
-  closeModal(newPostModal);
-  evt.target.reset();
+        disableButton(newPostSubmitButton, settings);
+        closeModal(newPostModal);
+        evt.target.reset();
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 }
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
@@ -167,8 +219,3 @@ function getCardElement(data) {
 
   return cardElement;
 }
-
-initialCards.forEach(function (item) {
-  const cardElement = getCardElement(item);
-  cardsList.append(cardElement);
-});

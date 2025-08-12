@@ -1,4 +1,4 @@
-const initialCards = [
+/*const initialCards = [
   {
     name: "Golden Gate bridge",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
@@ -27,7 +27,7 @@ const initialCards = [
     name: "Mountain house",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
-];
+];*/
 
 const settings = {
   formSelector: ".modal__form",
@@ -38,4 +38,4 @@ const settings = {
   errorClass: "modal__error",
 };
 
-export { initialCards, settings };
+export { settings };
