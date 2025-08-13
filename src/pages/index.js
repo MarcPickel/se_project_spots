@@ -24,7 +24,7 @@ const profileDescriptionElement = document.querySelector(
   ".profile__description"
 );
 
-// Edit Avatar
+// Edit Avatar Elements
 const profileAvatarButton = profileAvatarCont.querySelector(
   ".profile__avatar-button"
 );
@@ -35,8 +35,11 @@ const profileAvatarForm = profileAvatarModal.querySelector(
 const profileAvatarLinkInput = profileAvatarForm.querySelector(
   "#avatar-image-input"
 );
+const profileAvatarCloseButton = profileAvatarModal.querySelector(
+  ".modal__close-button"
+);
 
-// Edit Profile
+// Edit Profile Elements
 const editProfileButton = document.querySelector(".profile__edit-button");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseButton = editProfileModal.querySelector(
@@ -50,7 +53,7 @@ const editProfileDescriptionInput = editProfileModal.querySelector(
   "#profile-description-input"
 );
 
-// New Post
+// New Post Elements
 const newPostButton = document.querySelector(".profile__add-button");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostSubmitButton = newPostModal.querySelector(".modal__submit-button");
@@ -58,6 +61,14 @@ const newPostCloseButton = newPostModal.querySelector(".modal__close-button");
 const newPostForm = newPostModal.querySelector("#new-post-form");
 const newPostLinkInput = newPostModal.querySelector("#card-image-input");
 const newPostCaptionInput = newPostModal.querySelector("#card-caption-input");
+
+// Preview Modal Elements
+const previewModal = document.querySelector("#preview-modal");
+const previewModalCloseButton = previewModal.querySelector(
+  ".modal__close-button"
+);
+const previewImageElement = previewModal.querySelector(".modal__image");
+const previewCaptionElement = previewModal.querySelector(".modal__caption");
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -109,6 +120,14 @@ editProfileButton.addEventListener("click", function () {
   openModal(editProfileModal);
 });
 
+profileAvatarButton.addEventListener("click", () => {
+  openModal(profileAvatarModal);
+});
+
+profileAvatarCloseButton.addEventListener("click", () => {
+  closeModal(profileAvatarModal);
+});
+
 editProfileCloseButton.addEventListener("click", () => {
   closeModal(editProfileModal);
 });
@@ -119,6 +138,10 @@ newPostButton.addEventListener("click", () => {
 
 newPostCloseButton.addEventListener("click", () => {
   closeModal(newPostModal);
+});
+
+previewModalCloseButton.addEventListener("click", () => {
+  closeModal(previewModal);
 });
 
 //function handleAvatarSubmit(evt) {
@@ -143,7 +166,6 @@ function handleEditProfileSubmit(evt) {
       console.error(err);
     });
 }
-
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 function handleNewPostSubmit(evt) {
@@ -172,19 +194,7 @@ function handleNewPostSubmit(evt) {
       console.error(err);
     });
 }
-
 newPostForm.addEventListener("submit", handleNewPostSubmit);
-
-// Preview Modal
-const previewModal = document.querySelector("#preview-modal");
-const previewModalCloseButton = previewModal.querySelector(
-  ".modal__close-button"
-);
-const previewImageElement = previewModal.querySelector(".modal__image");
-const previewCaptionElement = previewModal.querySelector(".modal__caption");
-previewModalCloseButton.addEventListener("click", () => {
-  closeModal(previewModal);
-});
 
 // modalOverlayClose feature
 function modalOverlayClose(evt) {
