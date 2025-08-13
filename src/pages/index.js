@@ -15,6 +15,27 @@ import {
 } from "../scripts/validation.js";
 enableValidation(settings);
 
+// Profile Elements
+const profileAvatarCont = document.querySelector(".profile__avatar-container");
+const profileAvatarElement =
+  profileAvatarCont.querySelector(".profile__avatar");
+const profileNameElement = document.querySelector(".profile__name");
+const profileDescriptionElement = document.querySelector(
+  ".profile__description"
+);
+
+// Edit Avatar
+const profileAvatarButton = profileAvatarCont.querySelector(
+  ".profile__avatar-button"
+);
+const profileAvatarModal = document.querySelector("#avatar-modal");
+const profileAvatarForm = profileAvatarModal.querySelector(
+  "#profile-avatar-form"
+);
+const profileAvatarLinkInput = profileAvatarForm.querySelector(
+  "#avatar-image-input"
+);
+
 // Edit Profile
 const editProfileButton = document.querySelector(".profile__edit-button");
 const editProfileModal = document.querySelector("#edit-profile-modal");
@@ -37,13 +58,6 @@ const newPostCloseButton = newPostModal.querySelector(".modal__close-button");
 const newPostForm = newPostModal.querySelector("#new-post-form");
 const newPostLinkInput = newPostModal.querySelector("#card-image-input");
 const newPostCaptionInput = newPostModal.querySelector("#card-caption-input");
-
-// Profile Elements
-const profileAvatarElement = document.querySelector(".profile__avatar");
-const profileNameElement = document.querySelector(".profile__name");
-const profileDescriptionElement = document.querySelector(
-  ".profile__description"
-);
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -107,6 +121,10 @@ newPostCloseButton.addEventListener("click", () => {
   closeModal(newPostModal);
 });
 
+//function handleAvatarSubmit(evt) {
+//  evt.preventDefault();
+//}
+
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   api
@@ -157,6 +175,7 @@ function handleNewPostSubmit(evt) {
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
 
+// Preview Modal
 const previewModal = document.querySelector("#preview-modal");
 const previewModalCloseButton = previewModal.querySelector(
   ".modal__close-button"

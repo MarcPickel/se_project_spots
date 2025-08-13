@@ -27,11 +27,20 @@
 
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./images/avatar.jpg')%>"
-            alt="Bessie Coleman"
-            class="profile__avatar"
-          />
+          <div class="profile__avatar-container">
+            <button class="profile__avatar-button">
+              <img
+                src="<%=require('./images/icon_pencil_light.svg')%>"
+                alt="Edit"
+                class="profile__pencil-icon"
+              />
+            </button>
+            <img
+              src="<%=require('./images/avatar.jpg')%>"
+              alt="Bessie Coleman"
+              class="profile__avatar"
+            />
+          </div>
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
@@ -163,7 +172,7 @@
           <p class="modal__caption"></p>
         </div>
       </div>
-      <div class="modal modal_is-opened" id="delete-modal">
+      <div class="modal" id="delete-modal">
         <div class="modal__container modal_type_delete" id="modal-cont">
           <button
             type="button"
@@ -182,6 +191,32 @@
             <button type="button" class="modal__cancel-button">Cancel</button>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="modal" id="avatar-modal">
+      <div class="modal__container" id="modal-cont">
+        <button type="button" class="modal__close-button"></button>
+        <h2 class="modal__title">Edit profile avatar</h2>
+        <form
+          name="profile-avatar"
+          id="profile-avatar-form"
+          class="modal__form"
+          novalidate
+        >
+          <label for="avatar-image-input" class="modal__label"
+            >Profile Picture
+            <input
+              id="avatar-image-input"
+              type="url"
+              class="modal__input"
+              placeholder="Paste the link to an image"
+              required
+            />
+            <span id="avatar-image-input-error" class="modal__error"></span>
+          </label>
+          <button type="submit" class="modal__submit-button">Save</button>
+        </form>
       </div>
     </div>
   </body>
