@@ -265,7 +265,6 @@ function handleNewPostSubmit(evt) {
 newPostForm.addEventListener("submit", handleNewPostSubmit);
 
 function handleLikeCard(evt, id) {
-  //evt.target.classList.toggle("card__like-button_active");
   const button = evt.currentTarget;
   const isLiked = button.classList.contains("card__like-button_active");
   api
