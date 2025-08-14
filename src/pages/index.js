@@ -1,8 +1,9 @@
 //Import CSS
 import "./index.css";
 
-//Import from api.js
+//Import from utils.js
 import Api from "../utils/api.js";
+import { setButtonText } from "../utils/helpers.js";
 
 //Imports from constants.js
 import { settings } from "../utils/constants.js";
@@ -192,6 +193,11 @@ profileAvatarForm.addEventListener("submit", handleAvatarSubmit);
 
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
+
+  // Change text content to "Saving..." or "Deleting..."
+  const submitButton = evt.submitter;
+  setButtonText(button, true, "Save", "Saving");
+
   api
     .editUserInfo({
       name: editProfileNameInput.value,
@@ -209,6 +215,9 @@ function handleEditProfileSubmit(evt) {
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      submitButton.textContent = defaultText;
     });
 }
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
