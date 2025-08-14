@@ -1,4 +1,4 @@
-# TripleTen Project 3.5: Spots
+# TripleTen Project 9: Spots
 
 ### Overview
 
