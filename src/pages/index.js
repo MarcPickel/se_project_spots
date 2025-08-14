@@ -172,6 +172,10 @@ deleteModalCloseButton.addEventListener("click", () => {
 
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
+
+  const submitButton = evt.submitter;
+  setButtonText(submitButton, true, "Save", "Saving...");
+
   api
     .editAvatarImage({
       avatar: profileAvatarLinkInput.value,
@@ -187,6 +191,9 @@ function handleAvatarSubmit(evt) {
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      setButtonText(submitButton, false, "Save", "Saving...");
     });
 }
 profileAvatarForm.addEventListener("submit", handleAvatarSubmit);
@@ -196,7 +203,7 @@ function handleEditProfileSubmit(evt) {
 
   // Change text content to "Saving..." or "Deleting..."
   const submitButton = evt.submitter;
-  setButtonText(button, true, "Save", "Saving");
+  setButtonText(submitButton, true, "Save", "Saving...");
 
   api
     .editUserInfo({
@@ -217,13 +224,17 @@ function handleEditProfileSubmit(evt) {
       console.error(err);
     })
     .finally(() => {
-      submitButton.textContent = defaultText;
+      setButtonText(submitButton, false, "Save", "Saving...");
     });
 }
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
+
+  const submitButton = evt.submitter;
+  setButtonText(submitButton, true, "Save", "Saving...");
+
   api
     .getNewCard({
       name: newPostCaptionInput.value,
@@ -246,6 +257,9 @@ function handleNewPostSubmit(evt) {
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      setButtonText(submitButton, false, "Save", "Saving...");
     });
 }
 newPostForm.addEventListener("submit", handleNewPostSubmit);
@@ -266,6 +280,10 @@ function handleLikeCard(evt, id) {
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
+
+  const submitButton = evt.submitter;
+  setButtonText(submitButton, true, "Delete", "Deleting...");
+
   api
     .removeCard(selectedCardId)
     .then(() => {
@@ -274,6 +292,9 @@ function handleDeleteSubmit(evt) {
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      setButtonText(submitButton, false, "Delete", "Deleting...");
     });
 }
 deleteForm.addEventListener("submit", handleDeleteSubmit);
