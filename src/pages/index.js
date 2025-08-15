@@ -78,6 +78,9 @@ const deleteForm = deleteModal.querySelector(".modal__form");
 const deleteModalCloseButton = deleteModal.querySelector(
   ".modal__close-button"
 );
+const deleteModalCancelButton = deleteModal.querySelector(
+  ".modal__cancel-button"
+);
 
 // Preview Modal Elements
 const previewModal = document.querySelector("#preview-modal");
@@ -170,6 +173,10 @@ deleteModalCloseButton.addEventListener("click", () => {
   closeModal(deleteModal);
 });
 
+deleteModalCancelButton.addEventListener("click", () => {
+  closeModal(deleteModal);
+});
+
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
 
@@ -242,12 +249,7 @@ function handleNewPostSubmit(evt) {
     })
     .then((data) => {
       if (data) {
-        const inputValues = {
-          name: data.name,
-          link: data.link,
-        };
-
-        const cardElement = getCardElement(inputValues);
+        const cardElement = getCardElement(data);
         cardsList.prepend(cardElement);
 
         disableButton(newPostSubmitButton, settings);
