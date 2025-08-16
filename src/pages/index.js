@@ -273,6 +273,7 @@ function handleLikeCard(evt, id) {
     .changeLike(id, isLiked)
     .then(() => {
       button.classList.toggle("card__like-button_active");
+      console.log("It's working!");
     })
     .catch((err) => {
       console.error(err);
