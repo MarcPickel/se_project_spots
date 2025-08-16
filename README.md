@@ -17,6 +17,8 @@ This is the fifth installment of the se_spots_project of the Software Engineerin
 - HTML5
 - CSS3
 - JavaScript
+- API
+- Asynchronous Programming
 - Flat BEM file structure
 - BEM naming conventions
 - Semantic tags
