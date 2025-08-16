@@ -170,6 +170,61 @@
   line-height: 120%;
 }
 
+/*Delete Card Modal Styles*/
+.modal_type_delete {
+  max-width: 630px;
+  max-height: 172px;
+}
+
+.modal__close-button_type_delete {
+  position: absolute;
+  top: 0;
+  right: -52.5px;
+  width: 40px;
+  height: 40px;
+  background: transparent url(../images/close-icon_white.svg) center no-repeat;
+  opacity: 1;
+}
+
+.modal__close-button_type_delete:hover {
+  opacity: 0.4;
+}
+
+.modal__title_type_delete {
+  font-size: 24px;
+  text-align: center;
+}
+
+.modal__row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modal__submit-button_type_delete {
+  background-color: #ff6565;
+  color: #212121;
+}
+
+.modal__submit-button_type_delete:hover {
+  background-color: #ff3333;
+}
+
+.modal__cancel-button {
+  width: 156px;
+  padding: 18px 32px;
+  background-color: #fff;
+  color: #212121;
+  border-radius: 8px;
+  opacity: 1;
+}
+
+.modal__cancel-button:hover {
+  background-color: #212121;
+  color: #fff;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 627px) {
   .modal {
     padding: 0 10px;
@@ -189,7 +244,7 @@
   }
 
   .modal__title {
-    margin: 10px 0 34px;
+    margin: 10px 0 20px;
     font-size: 20px;
   }
 
@@ -220,5 +275,31 @@
 
   .modal__caption {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .modal_type_delete {
+    padding: 12px;
+    max-height: 208px;
+  }
+
+  .modal__title_type_delete {
+    margin: 0 0 20px;
+  }
+
+  .modal__row {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .modal__submit-button_type_delete {
+    width: 156px;
+  }
+
+  .modal__close-button_type_delete {
+    top: -48px;
+    right: 0;
   }
 }

@@ -1,12 +1,3 @@
-const settings = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__submit-button",
-  inactiveButtonClass: "modal__submit-button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error",
-};
-
 const showInputError = (formElement, inputElement, errorMessage, config) => {
   const errorMessageElement = formElement.querySelector(
     `#${inputElement.id}-error`
@@ -85,4 +76,4 @@ const enableValidation = (config) => {
   });
 };
 
-export { enableValidation, resetValidation, disableButton, settings };
+export { enableValidation, resetValidation, disableButton };
